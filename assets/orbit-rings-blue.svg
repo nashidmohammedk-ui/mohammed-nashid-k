@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <!-- Thin circular wireframe orbit rings matching reference -->
+  <circle cx="300" cy="300" r="280" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.35"/>
+  <circle cx="300" cy="300" r="210" stroke="#60A5FA" stroke-width="1.2" stroke-opacity="0.25"/>
+  <circle cx="300" cy="300" r="140" stroke="#93C5FD" stroke-width="1" stroke-opacity="0.2"/>
+</svg>

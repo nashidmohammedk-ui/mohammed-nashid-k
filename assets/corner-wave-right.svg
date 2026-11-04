@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 500" fill="none" preserveAspectRatio="none">
+  <!-- Deep textured dark organic wavy shape on right -->
+  <path d="M320 0 L280 0 C220 80 290 160 210 240 C140 310 230 410 180 500 L320 500 Z" fill="#131316"/>
+  <!-- Golden contour line tracing beside the wave -->
+  <path d="M290 0 C225 75 295 155 215 238 C145 315 235 415 185 500" stroke="#C5A880" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="spacePortal" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#3b82f6" stop-opacity="0.6"/>
+      <stop offset="65%" stop-color="#0f172a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#spacePortal)"/>
+
+  <!-- Starfield particles -->
+  <circle cx="100" cy="80" r="1.5" fill="#ffffff" fill-opacity="0.8"/>
+  <circle cx="180" cy="140" r="1" fill="#ffffff" fill-opacity="0.6"/>
+  <circle cx="280" cy="60" r="2" fill="#ffffff" fill-opacity="0.9"/>
+  <circle cx="680" cy="90" r="1.5" fill="#ffffff" fill-opacity="0.7"/>
+  <circle cx="720" cy="220" r="2.2" fill="#ffffff" fill-opacity="0.8"/>
+  <circle cx="620" cy="380" r="1" fill="#ffffff" fill-opacity="0.5"/>
+  <circle cx="150" cy="400" r="1.8" fill="#ffffff" fill-opacity="0.7"/>
+
+  <!-- Dimensional portal rings -->
+  <ellipse cx="400" cy="250" rx="260" ry="160" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="12 8" stroke-opacity="0.6"/>
+  <ellipse cx="400" cy="250" rx="190" ry="110" fill="none" stroke="#38bdf8" stroke-width="3" stroke-opacity="0.8"/>
+  <ellipse cx="400" cy="250" rx="120" ry="60" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="400" cy="250" r="25" fill="#ffffff" filter="drop-shadow(0 0 20px #c084fc)"/>
+
+  <!-- Astronaut / Traveler silhouette in zero-g -->
+  <g transform="translate(350, 200) rotate(15)">
+    <!-- Helmet -->
+    <circle cx="50" cy="30" r="20" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+    <!-- Visor golden reflection -->
+    <ellipse cx="54" cy="30" rx="11" ry="8" fill="#fbbf24"/>
+    <!-- Torso -->
+    <rect x="36" y="48" width="28" height="36" rx="6" fill="#1e293b"/>
+    <!-- Backpack -->
+    <rect x="25" y="46" width="12" height="34" rx="4" fill="#334155"/>
+    <!-- Limbs floating -->
+    <line x1="38" y1="54" x2="16" y2="70" stroke="#1e293b" stroke-width="8" stroke-linecap="round"/>
+    <line x1="62" y1="54" x2="80" y2="40" stroke="#1e293b" stroke-width="8" stroke-linecap="round"/>
+    <line x1="42" y1="84" x2="30" y2="120" stroke="#1e293b" stroke-width="9" stroke-linecap="round"/>
+    <line x1="58" y1="84" x2="75" y2="115" stroke="#1e293b" stroke-width="9" stroke-linecap="round"/>
+  </g>
+
+  <!-- Framing & Typography -->
+  <rect x="25" y="25" width="750" height="450" fill="none" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="45" y="65" font-family="'Space Grotesk', sans-serif" font-size="12" fill="#c084fc" letter-spacing="3">SCI-FI NARRATIVE • CINEMATIC STORYTELLING</text>
+  <text x="45" y="445" font-family="'Bebas Neue', sans-serif" font-size="34" fill="#FFFFFF" letter-spacing="2">CHRONO VOYAGERS: BEYOND THE EVENT HORIZON</text>
+  <text x="755" y="445" font-family="'Space Grotesk', sans-serif" font-size="14" fill="#FF1E1E" text-anchor="end" font-weight="bold">CHARACTER &amp; WORLD-BUILDING</text>
+</svg>

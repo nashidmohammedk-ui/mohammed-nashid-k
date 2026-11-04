@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="goldGlow" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#2a2216"/>
+      <stop offset="45%" stop-color="#14110b"/>
+      <stop offset="90%" stop-color="#080705"/>
+    </radialGradient>
+    <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="25%" stop-color="#d4af37" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#1a150b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="amberLiquid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#b45309" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#goldGlow)"/>
+
+  <!-- Light beam rays from above -->
+  <polygon points="350,0 450,0 550,500 250,500" fill="#fef3c7" fill-opacity="0.04"/>
+
+  <!-- Floating golden dust particles -->
+  <circle cx="280" cy="180" r="2.5" fill="#fde68a" fill-opacity="0.7"/>
+  <circle cx="320" cy="290" r="1.8" fill="#fde68a" fill-opacity="0.5"/>
+  <circle cx="490" cy="160" r="2.2" fill="#fde68a" fill-opacity="0.6"/>
+  <circle cx="520" cy="270" r="3" fill="#fde68a" fill-opacity="0.4"/>
+  <circle cx="380" cy="110" r="1.5" fill="#fde68a" fill-opacity="0.8"/>
+
+  <!-- Pedestal reflection platform -->
+  <ellipse cx="400" cy="400" rx="190" ry="24" fill="#000000" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.4"/>
+  
+  <!-- Perfume Bottle Base -->
+  <rect x="330" y="210" width="140" height="180" rx="16" fill="url(#glassGrad)" stroke="#d4af37" stroke-width="2"/>
+  <!-- Liquid core -->
+  <rect x="342" y="235" width="116" height="145" rx="8" fill="url(#amberLiquid)"/>
+  
+  <!-- Bottle Cap -->
+  <rect x="370" y="160" width="60" height="42" rx="4" fill="#d4af37" stroke="#fef08a" stroke-width="1.5"/>
+  <rect x="382" y="202" width="36" height="8" fill="#1e180d"/>
+
+  <!-- Label on bottle -->
+  <rect x="355" y="275" width="90" height="65" fill="#0c0a07" stroke="#d4af37" stroke-width="1"/>
+  <text x="400" y="302" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#d4af37" text-anchor="middle" letter-spacing="4">A U R A</text>
+  <text x="400" y="322" font-family="'Inter', sans-serif" font-size="7" fill="#fef3c7" text-anchor="middle" letter-spacing="2">EAU DE PARFUM</text>
+
+  <!-- Dramatic smoke / floral swirl -->
+  <path d="M260 380 Q320 280 340 320 T420 240 Q460 200 520 260" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.3"/>
+
+  <!-- Cinematic Framing & Metadata -->
+  <rect x="25" y="25" width="750" height="450" fill="none" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="45" y="65" font-family="'Space Grotesk', sans-serif" font-size="12" fill="#d4af37" letter-spacing="3">AI BRAND COMMERCIAL • PRODUCT AD</text>
+  <text x="45" y="445" font-family="'Bebas Neue', sans-serif" font-size="34" fill="#FFFFFF" letter-spacing="2">AURA LUXURY PERFUME</text>
+  <text x="755" y="445" font-family="'Space Grotesk', sans-serif" font-size="14" fill="#FF1E1E" text-anchor="end" font-weight="bold">MIDJOURNEY + RUNWAY GEN-3</text>
+</svg>

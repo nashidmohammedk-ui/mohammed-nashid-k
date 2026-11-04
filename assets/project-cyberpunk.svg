@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="neonGlow" cx="60%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#FF0055" stop-opacity="0.8"/>
+      <stop offset="40%" stop-color="#7928CA" stop-opacity="0.6"/>
+      <stop offset="80%" stop-color="#0a0a14" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </radialGradient>
+    <linearGradient id="cyberSkyline" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FF0055" stop-opacity="0.1"/>
+    </linearGradient>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.12 0"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="#07070c"/>
+  <rect width="800" height="500" fill="url(#neonGlow)"/>
+  
+  <!-- Cyberpunk skyscraper silhouettes -->
+  <path d="M40 500 L40 280 L90 280 L90 220 L130 220 L130 500 Z" fill="#040408"/>
+  <path d="M140 500 L140 160 L180 130 L220 160 L220 500 Z" fill="#080812"/>
+  <path d="M230 500 L230 260 L290 260 L290 500 Z" fill="#05050a"/>
+  <path d="M480 500 L480 140 L530 110 L580 140 L580 500 Z" fill="#060610"/>
+  <path d="M590 500 L590 200 L650 200 L650 500 Z" fill="#030307"/>
+  <path d="M660 500 L660 250 L720 250 L720 500 Z" fill="#06060c"/>
+
+  <!-- Neon lighting lines and billboards -->
+  <line x1="160" y1="180" x2="160" y2="350" stroke="#00F0FF" stroke-width="4" stroke-opacity="0.8"/>
+  <line x1="170" y1="200" x2="170" y2="300" stroke="#FF0077" stroke-width="3" stroke-opacity="0.8"/>
+  <rect x="500" y="160" width="60" height="120" fill="none" stroke="#FF1E1E" stroke-width="2.5" stroke-opacity="0.85"/>
+  <line x1="510" y1="180" x2="550" y2="180" stroke="#FF1E1E" stroke-width="3"/>
+  <line x1="510" y1="200" x2="540" y2="200" stroke="#FF1E1E" stroke-width="3"/>
+  
+  <!-- Wet street reflections -->
+  <ellipse cx="400" cy="460" rx="350" ry="40" fill="#FF0055" fill-opacity="0.25"/>
+  <ellipse cx="250" cy="450" rx="200" ry="30" fill="#00F0FF" fill-opacity="0.2"/>
+
+  <!-- Dramatic Silhouette Figure with glowing visor -->
+  <path d="M380 430 L370 330 C370 300 380 270 400 270 C420 270 430 300 430 330 L420 430 Z" fill="#020204"/>
+  <circle cx="400" cy="250" r="22" fill="#020204"/>
+  <!-- Glowing visor -->
+  <path d="M390 248 Q400 245 412 248" stroke="#00F0FF" stroke-width="4.5" stroke-linecap="round"/>
+  
+  <!-- Film Grain Overlay -->
+  <rect width="800" height="500" filter="url(#noise)"/>
+  
+  <!-- Cinematic Letterbox Lines & Metadata -->
+  <rect x="25" y="25" width="750" height="450" fill="none" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="45" y="65" font-family="'Space Grotesk', sans-serif" font-size="12" fill="#00F0FF" letter-spacing="3">AI CINEMATIC VIDEO • 4K RENDER</text>
+  <text x="45" y="445" font-family="'Bebas Neue', sans-serif" font-size="34" fill="#FFFFFF" letter-spacing="2">CYBERPUNK NEON NOIR</text>
+  <text x="755" y="445" font-family="'Space Grotesk', sans-serif" font-size="14" fill="#FF1E1E" text-anchor="end" font-weight="bold">KLING AI + MIDJOURNEY</text>
+</svg>

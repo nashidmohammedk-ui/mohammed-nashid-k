@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 500" fill="none" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="blueWaveGradLeft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#BAE6FD" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#E0F2FE" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#F0F9FF" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <!-- Soft minimal fluid wave shape -->
+  <path d="M0 0 L15 0 C70 120 15 200 85 270 C145 330 60 420 120 500 L0 500 Z" fill="url(#blueWaveGradLeft)"/>
+  <!-- Delicate light blue contour line -->
+  <path d="M10 0 C65 110 20 195 90 268 C155 335 75 425 130 500" stroke="#0EA5E9" stroke-width="1.8" stroke-linecap="round" stroke-opacity="0.6"/>
+</svg>

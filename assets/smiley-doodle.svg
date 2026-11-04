@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- Hand-drawn round smiley badge with white background -->
+  <circle cx="40" cy="40" r="34" fill="#FFFFFF" stroke="#111111" stroke-width="4.5"/>
+  <!-- Two black eye dots -->
+  <ellipse cx="29" cy="33" rx="4.5" ry="6" fill="#111111"/>
+  <ellipse cx="51" cy="33" rx="4.5" ry="6" fill="#111111"/>
+  <!-- Curved smile -->
+  <path d="M26 47 C32 60 48 60 54 47" stroke="#111111" stroke-width="4.5" stroke-linecap="round"/>
+</svg>

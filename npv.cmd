@@ -1,0 +1,3 @@
+@echo off
+echo Starting Mohammed Nashid K Portfolio Preview...
+agy-node server.js

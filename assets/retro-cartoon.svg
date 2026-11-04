@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- White outline sticker background glow/border -->
+  <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.35))">
+    <!-- Hair back shape -->
+    <path d="M45 80 C30 65 35 40 50 30 C70 15 95 25 110 20 C125 15 155 18 165 40 C175 60 170 85 160 100 C155 108 150 115 152 125 C145 130 138 120 135 110" fill="#111111" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round"/>
+    
+    <!-- Face shape -->
+    <path d="M52 82 C48 95 48 115 58 130 C70 148 95 156 120 152 C142 148 156 132 155 110 C154 95 148 85 140 80 C115 65 75 65 52 82 Z" fill="#FFFFFF" stroke="#111111" stroke-width="6"/>
+
+    <!-- Hair forelock / messy bangs -->
+    <path d="M48 65 C60 50 82 52 95 62 C108 55 130 52 145 70 C155 58 140 40 120 38 C100 35 80 42 62 48 C52 52 45 58 48 65 Z" fill="#111111"/>
+    <path d="M90 62 C105 72 115 82 118 92 C112 85 105 80 95 78 Z" fill="#111111"/>
+
+    <!-- Left Eye (vintage rubberhose oval eye with shine) -->
+    <ellipse cx="85" cy="100" rx="9" ry="14" fill="#111111"/>
+    <ellipse cx="82" cy="96" rx="3.5" ry="5.5" fill="#FFFFFF"/>
+
+    <!-- Right Eye (vintage rubberhose oval eye) -->
+    <ellipse cx="122" cy="98" rx="8.5" ry="13" fill="#111111"/>
+    <ellipse cx="120" cy="94" rx="3.5" ry="5" fill="#FFFFFF"/>
+
+    <!-- Nose (cute curved button nose) -->
+    <path d="M100 105 C103 108 107 108 109 104" stroke="#111111" stroke-width="4.5" stroke-linecap="round"/>
+
+    <!-- Cheeks dimple -->
+    <path d="M66 114 C67 118 70 120 73 118" stroke="#111111" stroke-width="4" stroke-linecap="round"/>
+    <path d="M136 112 C137 116 135 119 132 118" stroke="#111111" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Wide Grinning Mouth -->
+    <path d="M72 118 C85 142 122 142 135 118 Z" fill="#FFFFFF" stroke="#111111" stroke-width="5" stroke-linejoin="round"/>
+    
+    <!-- Teeth grid lines -->
+    <path d="M72 125 C88 132 118 132 135 125" stroke="#111111" stroke-width="3.5"/>
+    <line x1="88" y1="122" x2="88" y2="132" stroke="#111111" stroke-width="3"/>
+    <line x1="103" y1="125" x2="103" y2="137" stroke="#111111" stroke-width="3"/>
+    <line x1="118" y1="122" x2="118" y2="132" stroke="#111111" stroke-width="3"/>
+
+    <!-- Ear on right -->
+    <path d="M152 108 C158 106 162 110 160 116 C158 122 153 122 150 119" stroke="#111111" stroke-width="4.5" fill="#FFFFFF"/>
+  </g>
+</svg>

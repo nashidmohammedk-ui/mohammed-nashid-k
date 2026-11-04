@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Hand drawn peace sign doodle in chalk/marker style -->
+  <path d="M42 110 V52 C42 42 45 28 50 16 C52 10 57 11 58 17 C59 26 58 45 58 52" stroke="#FFFFFF" stroke-width="4.5"/>
+  <path d="M58 50 C58 42 63 26 69 18 C73 12 78 14 77 22 C76 32 72 48 70 58" stroke="#FFFFFF" stroke-width="4.5"/>
+  <path d="M70 60 C75 58 84 62 84 70 C84 78 78 84 74 88" stroke="#FFFFFF" stroke-width="4.5"/>
+  <path d="M74 88 C78 92 78 99 74 104 C70 109 64 110 50 110" stroke="#FFFFFF" stroke-width="4.5"/>
+  <path d="M42 75 C36 75 32 80 32 87 C32 96 38 106 45 110" stroke="#FFFFFF" stroke-width="4.5"/>
+  <path d="M50 56 C46 64 48 78 58 80 C65 81 68 76 68 68" stroke="#FFFFFF" stroke-width="3.5"/>
+  <!-- Accent highlight loops -->
+  <path d="M50 24 C51 20 54 20 55 24" stroke="#FFFFFF" stroke-width="3"/>
+  <path d="M68 25 C69 22 72 22 73 26" stroke="#FFFFFF" stroke-width="3"/>
+</svg>
