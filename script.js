@@ -122,33 +122,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   // 2B. RECTANGULAR TOP NAVBAR ACTIVE LINK SCROLLSPY
   // =========================================================================
-  const navLinkItems = document.querySelectorAll('.nav-link-item');
-  const navLinkedSections = Array.from(navLinkItems)
-    .map(link => document.getElementById(link.getAttribute('href').replace('#', '')))
-    .filter(Boolean);
+  const navPillLinks = document.querySelectorAll('.nav-link-item, .nav-pill-link');
+  const pageSections = document.querySelectorAll('header.hero-wrapper[id], section[id]');
 
   function updateActiveNavLink() {
-    const scrollPos = window.scrollY + 120;
-    
-    // Check from bottom to top to find the current active section
-    let currentActiveId = '';
-    for (let i = navLinkedSections.length - 1; i >= 0; i--) {
-      const section = navLinkedSections[i];
-      if (scrollPos >= section.offsetTop - 60) {
-        currentActiveId = section.getAttribute('id');
-        break;
-      }
-    }
-
-    if (!currentActiveId && navLinkedSections.length > 0) {
-      currentActiveId = navLinkedSections[0].getAttribute('id');
-    }
-
-    navLinkItems.forEach(link => {
-      if (link.getAttribute('href') === `#${currentActiveId}`) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
+    const scrollPos = window.scrollY + 140;
+    pageSections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+      if (scrollPos >= top && scrollPos < top + height) {
+        navPillLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
       }
     });
   }
@@ -240,14 +230,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   const projectData = {
     cyberpunk: {
-      title: 'Porsche 911 — Cinematic AI Commercial',
+      title: 'Cyberpunk Neon Noir — Cinematic AI Commercial',
       badge: 'AI CINEMATIC VIDEO • 4K RENDER',
-      desc: 'High-octane luxury automotive commercial engineered for fluid camera sweeps, photorealistic paint reflections, volumetric atmospheric lighting, and precision motion pacing.',
-      prompt: 'Cinematic commercial film of a sleek Porsche 911 driving through dramatic atmospheric landscapes, volumetric golden hour and neon night lighting, ultra-realistic car paint reflections, high-speed tracking camera, 8k resolution, photorealistic cinematic grade --ar 16:9 --v 6.0',
-      engine: 'Kling AI + Midjourney v6',
-      ar: '16:9 Cinema 4K',
-      img: 'assets/project-cyberpunk.svg',
-      video: 'assets/project-porsche.mp4'
+      desc: 'An evocative glimpse into a high-density neo-Tokyo rainscape. Engineered for fluid camera tracking, realistic neon precipitation reflections, and photorealistic skin subsurface scattering on futuristic cyborg characters.',
+      prompt: '/imagine prompt: Cinematic medium wide shot of a futuristic street in Neo-Tokyo, pouring rain, glowing neon kanji signs reflected in puddles, cinematic red and cyan rim lighting, volumetric steam, anamorphic lens flare, 35mm film grain, 8k resolution, directed by Denis Villeneuve --ar 16:9 --style raw --v 6.0',
+      engine: 'Midjourney v6 + Kling AI Camera Motion',
+      ar: '16:9 Cinema Wide',
+      img: 'assets/project-cyberpunk.svg'
     },
     perfume: {
       title: 'Aura Luxury Perfume — Brand Commercial',
@@ -299,7 +288,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('projectModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
   const modalImg = document.getElementById('modalProjectImg');
-  const modalVideo = document.getElementById('modalProjectVideo');
   const modalBadge = document.getElementById('modalProjectBadge');
   const modalTitle = document.getElementById('modalProjectTitle');
   const modalDesc = document.getElementById('modalProjectDesc');
@@ -312,21 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = projectData[projectId];
     if (!data) return;
 
-    if (data.video && modalVideo) {
-      modalVideo.src = data.video;
-      modalVideo.style.display = 'block';
-      modalImg.style.display = 'none';
-      modalVideo.play().catch(() => {});
-    } else {
-      if (modalVideo) {
-        modalVideo.pause();
-        modalVideo.src = '';
-        modalVideo.style.display = 'none';
-      }
-      modalImg.src = data.img;
-      modalImg.style.display = 'block';
-    }
-
+    modalImg.src = data.img;
     modalBadge.textContent = data.badge;
     modalTitle.textContent = data.title;
     modalDesc.textContent = data.desc;
@@ -340,10 +314,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function closeProjectModal() {
-    if (modalVideo) {
-      modalVideo.pause();
-      modalVideo.src = '';
-    }
     modal.classList.remove('open');
     document.body.style.overflow = '';
     playClickSound(450, 'sine', 0.04);

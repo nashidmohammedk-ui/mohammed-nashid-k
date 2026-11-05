@@ -23,41 +23,43 @@
 <body>
 
   <!-- ========================================================================
-       STICKY FLOATING CAPSULE NAVBAR (MATCHING REFERENCE DESIGN)
-       Floating stadium/capsule header bar visible across all sections
-       Features user reference MN monogram logo, vertical divider, exact section order,
-       diamond star divider ornament, and Let's Talk CTA in portfolio color theme
+       STICKY RECTANGULAR TOP NAVBAR (MATCHING REFERENCE DESIGN)
+       Fixed full-width rectangular header bar visible across all sections
+       Features user reference MN monogram logo, sleek links, and Let's Talk CTA
        ======================================================================== -->
   <header class="site-rectangular-navbar" id="mainNavbar">
     <div class="site-navbar-inner">
       
-      <!-- Left: Monogram Logo MN & Vertical Divider matching reference image -->
-      <div class="nav-left-cluster">
+      <!-- Left: Monogram Logo MN & Vertical Divider matching reference -->
+      <div class="nav-brand-wrap">
         <a href="#home" class="nav-brand-box" aria-label="Mohammed Nashid K — Home">
           <img src="assets/mn-logo.png" alt="MN Monogram Logo" class="nav-brand-logo-img">
         </a>
         <div class="nav-brand-divider" aria-hidden="true"></div>
       </div>
 
-      <!-- Center: Navigation Links in Exact Reference Sequence -->
+      <!-- Center: Navigation Links in Exact Section Order matching page -->
       <ul class="nav-links-menu">
         <li><a href="#home" class="nav-link-item active">Home</a></li>
         <li><a href="#about" class="nav-link-item">About</a></li>
-        <li><a href="#projects" class="nav-link-item">Portfolio</a></li>
         <li><a href="#services" class="nav-link-item">Services</a></li>
+        <li><a href="#process" class="nav-link-item">Process</a></li>
+        <li><a href="#projects" class="nav-link-item">Projects</a></li>
         <li><a href="#skills" class="nav-link-item">Skills</a></li>
+        <li><a href="#why-me" class="nav-link-item">Why Me</a></li>
         <li><a href="#contact" class="nav-link-item">Contact</a></li>
       </ul>
 
-      <!-- Right: Star Divider Line Ornament & Let's Talk CTA Button -->
+      <!-- Right: Star Sparkle Divider Line & Let's Talk CTA Button -->
       <div class="nav-right-cluster">
-        <div class="nav-ornament-divider" aria-hidden="true">
-          <span class="nav-ornament-line"></span>
-          <svg class="nav-ornament-star" viewBox="0 0 24 24" fill="none">
-            <path d="M12 0 C12 6.627 6.627 12 0 12 C6.627 12 12 17.373 12 24 C12 17.373 17.373 12 24 12 C17.373 12 12 6.627 12 0 Z" fill="currentColor"/>
+        <div class="nav-star-divider" aria-hidden="true">
+          <span class="nav-star-line"></span>
+          <svg class="nav-star-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0 C12 6.627 17.373 12 24 12 C17.373 12 12 17.373 12 24 C12 17.373 6.627 12 0 12 C6.627 12 12 6.627 12 0 Z"/>
           </svg>
-          <span class="nav-ornament-line"></span>
+          <span class="nav-star-line"></span>
         </div>
+
         <a href="#contact" class="nav-talk-btn">
           <span>Let's Talk</span>
           <span class="cta-arrow">→</span>
@@ -528,29 +530,24 @@
 
       <div class="projects-cards-grid" id="projectsGrid">
         
-        <!-- Project 1: Porsche 911 / Cinematic AI Commercial (Reference Video) -->
-        <div class="themed-project-card project-card-video" data-category="video" data-id="cyberpunk">
+        <!-- Project 1: Cyberpunk Neon Noir -->
+        <div class="themed-project-card" data-category="video" data-id="cyberpunk">
           <div class="project-thumbnail-wrapper">
-            <video class="project-thumbnail-video" src="assets/project-porsche.mp4" muted autoplay loop playsinline preload="metadata"></video>
-            <div class="video-play-indicator" aria-label="Play video">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
+            <img src="assets/project-cyberpunk.svg" alt="Cyberpunk Neon Noir" class="project-thumbnail-img">
             <span class="project-card-badge">AI Video • 4K</span>
           </div>
           <div class="project-card-details">
             <div class="project-meta-line">
-              <span>Cinematic AI Commercial</span>
+              <span>Sci-Fi World Building</span>
               <span class="project-meta-tool-tag">Kling AI + Midjourney</span>
             </div>
-            <h3 class="project-heading-title">Porsche 911 — Cinematic Commercial</h3>
+            <h3 class="project-heading-title">Cyberpunk Neon Noir</h3>
             <p class="project-body-summary">
-              High-octane luxury automotive commercial engineered for fluid camera sweeps, photorealistic paint reflections, and dynamic cinematic lighting.
+              Atmospheric futuristic metropolis commercial featuring dynamic camera sweeps, neon rain reflections, and cybernetic character design.
             </p>
             <div class="project-card-footer">
               <button class="btn-open-prompt-modal" data-project="cyberpunk">
-                <span>View Video &amp; Concept</span> ↗
+                <span>View Prompt &amp; Concept</span> ↗
               </button>
             </div>
           </div>
@@ -707,7 +704,7 @@
           <div class="tag-line"></div>
         </div>
         <div>
-          <span class="section-micro-tag">SECTION 08 — DISTINCTION</span>
+          <span class="section-micro-tag">SECTION 07 — DISTINCTION</span>
           <h2 class="section-title-large">Why Work With Me?</h2>
           <div class="section-subtitle-text">Bridging creative brand vision with precision engineering.</div>
         </div>
@@ -776,7 +773,7 @@
               <div class="tag-line"></div>
             </div>
             <div>
-              <span class="section-micro-tag">CONTACT &amp; INQUIRIES</span>
+              <span class="section-micro-tag">SECTION 08 — CONTACT &amp; INQUIRIES</span>
               <h2 class="section-title-large">Get in Touch</h2>
               <div class="contact-role-badge">AI Content Creator &amp; Visual Storyteller • Malappuram, Kerala, India</div>
             </div>
@@ -878,7 +875,7 @@
 
       <!-- Footer Bottom Bar -->
       <footer class="footer-row">
-        <a href="#home" class="footer-brand-logo-wrap" aria-label="Mohammed Nashid K — Home">
+        <a href="#home" class="footer-brand-logo-link" aria-label="Mohammed Nashid K — Home">
           <img src="assets/mn-logo.png" alt="MN Monogram Logo" class="footer-brand-logo-img">
         </a>
         
@@ -988,7 +985,6 @@
       <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
       
       <div class="modal-img-wrap">
-        <video class="modal-video" id="modalProjectVideo" controls playsinline style="display:none;"></video>
         <img src="" alt="Project Visual Preview" class="modal-img" id="modalProjectImg">
       </div>
 
