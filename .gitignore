@@ -3,7 +3,6 @@ node_modules/
 gcm.txt
 upload.log
 server.js
-package.json
 npv.cmd
 scripts/
 PUSH_TO_GITHUB.bat

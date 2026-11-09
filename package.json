@@ -1,0 +1,8 @@
+{
+  "name": "mohammed-nashid-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio of Mohammed Nashid K — AI Content Creator & Visual Storyteller",
+  "scripts": {
+    "build": "node -e \"console.log('Static site build complete')\""
+  }
+}
