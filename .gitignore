@@ -2,5 +2,10 @@ node_modules/
 *.log
 gcm.txt
 upload.log
+server.js
+package.json
+npv.cmd
+scripts/
+PUSH_TO_GITHUB.bat
 .vscode/
 .idea/
