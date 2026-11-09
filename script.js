@@ -230,12 +230,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   const projectData = {
     cyberpunk: {
-      title: 'Cyberpunk Neon Noir — Cinematic AI Commercial',
-      badge: 'AI CINEMATIC VIDEO • 4K RENDER',
-      desc: 'An evocative glimpse into a high-density neo-Tokyo rainscape. Engineered for fluid camera tracking, realistic neon precipitation reflections, and photorealistic skin subsurface scattering on futuristic cyborg characters.',
-      prompt: '/imagine prompt: Cinematic medium wide shot of a futuristic street in Neo-Tokyo, pouring rain, glowing neon kanji signs reflected in puddles, cinematic red and cyan rim lighting, volumetric steam, anamorphic lens flare, 35mm film grain, 8k resolution, directed by Denis Villeneuve --ar 16:9 --style raw --v 6.0',
-      engine: 'Midjourney v6 + Kling AI Camera Motion',
+      title: 'Porsche 911 — Cinematic AI Commercial',
+      badge: 'AI CINEMATIC COMMERCIAL • 4K RENDER',
+      desc: 'High-octane luxury automotive commercial engineered for fluid camera sweeps, photorealistic paint reflections, and dynamic cinematic lighting.',
+      prompt: '/imagine prompt: Cinematic tracking shot of a metallic midnight black Porsche 911 gliding across wet mountain switchbacks at twilight, rain mist reflections, dramatic headlights, photorealistic automotive body contours, 8k resolution, directed by Michael Bay --ar 16:9 --style raw --v 6.0',
+      engine: 'Kling AI + Midjourney v6',
       ar: '16:9 Cinema Wide',
+      video: 'assets/project-porsche.mp4',
       img: 'assets/project-cyberpunk.svg'
     },
     perfume: {
@@ -288,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('projectModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
   const modalImg = document.getElementById('modalProjectImg');
+  const modalVideo = document.getElementById('modalProjectVideo');
   const modalBadge = document.getElementById('modalProjectBadge');
   const modalTitle = document.getElementById('modalProjectTitle');
   const modalDesc = document.getElementById('modalProjectDesc');
@@ -300,7 +302,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = projectData[projectId];
     if (!data) return;
 
-    modalImg.src = data.img;
+    if (data.video && modalVideo) {
+      modalVideo.src = data.video;
+      modalVideo.style.display = 'block';
+      modalImg.style.display = 'none';
+      modalVideo.play().catch(() => {});
+    } else {
+      if (modalVideo) {
+        modalVideo.pause();
+        modalVideo.style.display = 'none';
+      }
+      modalImg.style.display = 'block';
+      modalImg.src = data.img;
+    }
+
     modalBadge.textContent = data.badge;
     modalTitle.textContent = data.title;
     modalDesc.textContent = data.desc;
@@ -316,6 +331,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeProjectModal() {
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    if (modalVideo) {
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+    }
     playClickSound(450, 'sine', 0.04);
   }
 

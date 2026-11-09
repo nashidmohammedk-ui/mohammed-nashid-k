@@ -1790,6 +1790,49 @@ body {
   transform: scale(1.05);
 }
 
+.project-thumbnail-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+  display: block;
+}
+
+.themed-project-card:hover .project-thumbnail-video {
+  transform: scale(1.05);
+}
+
+.video-play-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(14, 165, 233, 0.9);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(14, 165, 233, 0.5);
+  pointer-events: none;
+  transition: all var(--transition-fast);
+}
+
+.themed-project-card:hover .video-play-indicator {
+  transform: translate(-50%, -50%) scale(1.15);
+  background: var(--blue-dark);
+}
+
+.modal-video {
+  width: 100%;
+  max-height: 420px;
+  border-radius: 12px;
+  background: #000;
+  display: none;
+}
+
 .project-card-badge {
   position: absolute;
   top: 14px;
@@ -3193,24 +3236,29 @@ body {
 
       <div class="projects-cards-grid" id="projectsGrid">
         
-        <!-- Project 1: Cyberpunk Neon Noir -->
-        <div class="themed-project-card" data-category="video" data-id="cyberpunk">
+        <!-- Project 1: Porsche 911 / Cinematic AI Commercial (Reference Video) -->
+        <div class="themed-project-card project-card-video" data-category="video" data-id="cyberpunk">
           <div class="project-thumbnail-wrapper">
-            <img src="assets/project-cyberpunk.svg" alt="Cyberpunk Neon Noir" class="project-thumbnail-img">
+            <video class="project-thumbnail-video" src="assets/project-porsche.mp4" muted autoplay loop playsinline preload="metadata"></video>
+            <div class="video-play-indicator" aria-label="Play video">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
             <span class="project-card-badge">AI Video • 4K</span>
           </div>
           <div class="project-card-details">
             <div class="project-meta-line">
-              <span>Sci-Fi World Building</span>
+              <span>Cinematic AI Commercial</span>
               <span class="project-meta-tool-tag">Kling AI + Midjourney</span>
             </div>
-            <h3 class="project-heading-title">Cyberpunk Neon Noir</h3>
+            <h3 class="project-heading-title">Porsche 911 — Cinematic Commercial</h3>
             <p class="project-body-summary">
-              Atmospheric futuristic metropolis commercial featuring dynamic camera sweeps, neon rain reflections, and cybernetic character design.
+              High-octane luxury automotive commercial engineered for fluid camera sweeps, photorealistic paint reflections, and dynamic cinematic lighting.
             </p>
             <div class="project-card-footer">
               <button class="btn-open-prompt-modal" data-project="cyberpunk">
-                <span>View Prompt &amp; Concept</span> ↗
+                <span>View Video &amp; Concept</span> ↗
               </button>
             </div>
           </div>
@@ -3648,6 +3696,7 @@ body {
       <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
       
       <div class="modal-img-wrap">
+        <video class="modal-video" id="modalProjectVideo" controls playsinline></video>
         <img src="" alt="Project Visual Preview" class="modal-img" id="modalProjectImg">
       </div>
 
@@ -3910,12 +3959,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   const projectData = {
     cyberpunk: {
-      title: 'Cyberpunk Neon Noir — Cinematic AI Commercial',
-      badge: 'AI CINEMATIC VIDEO • 4K RENDER',
-      desc: 'An evocative glimpse into a high-density neo-Tokyo rainscape. Engineered for fluid camera tracking, realistic neon precipitation reflections, and photorealistic skin subsurface scattering on futuristic cyborg characters.',
-      prompt: '/imagine prompt: Cinematic medium wide shot of a futuristic street in Neo-Tokyo, pouring rain, glowing neon kanji signs reflected in puddles, cinematic red and cyan rim lighting, volumetric steam, anamorphic lens flare, 35mm film grain, 8k resolution, directed by Denis Villeneuve --ar 16:9 --style raw --v 6.0',
-      engine: 'Midjourney v6 + Kling AI Camera Motion',
+      title: 'Porsche 911 — Cinematic AI Commercial',
+      badge: 'AI CINEMATIC COMMERCIAL • 4K RENDER',
+      desc: 'High-octane luxury automotive commercial engineered for fluid camera sweeps, photorealistic paint reflections, and dynamic cinematic lighting.',
+      prompt: '/imagine prompt: Cinematic tracking shot of a metallic midnight black Porsche 911 gliding across wet mountain switchbacks at twilight, rain mist reflections, dramatic headlights, photorealistic automotive body contours, 8k resolution, directed by Michael Bay --ar 16:9 --style raw --v 6.0',
+      engine: 'Kling AI + Midjourney v6',
       ar: '16:9 Cinema Wide',
+      video: 'assets/project-porsche.mp4',
       img: 'assets/project-cyberpunk.svg'
     },
     perfume: {
@@ -3968,6 +4018,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('projectModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
   const modalImg = document.getElementById('modalProjectImg');
+  const modalVideo = document.getElementById('modalProjectVideo');
   const modalBadge = document.getElementById('modalProjectBadge');
   const modalTitle = document.getElementById('modalProjectTitle');
   const modalDesc = document.getElementById('modalProjectDesc');
@@ -3980,7 +4031,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = projectData[projectId];
     if (!data) return;
 
-    modalImg.src = data.img;
+    if (data.video && modalVideo) {
+      modalVideo.src = data.video;
+      modalVideo.style.display = 'block';
+      modalImg.style.display = 'none';
+      modalVideo.play().catch(() => {});
+    } else {
+      if (modalVideo) {
+        modalVideo.pause();
+        modalVideo.style.display = 'none';
+      }
+      modalImg.style.display = 'block';
+      modalImg.src = data.img;
+    }
+
     modalBadge.textContent = data.badge;
     modalTitle.textContent = data.title;
     modalDesc.textContent = data.desc;
@@ -3996,6 +4060,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeProjectModal() {
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    if (modalVideo) {
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+    }
     playClickSound(450, 'sine', 0.04);
   }
 
