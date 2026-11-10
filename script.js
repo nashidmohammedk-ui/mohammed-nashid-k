@@ -236,7 +236,18 @@ document.addEventListener('DOMContentLoaded', () => {
       prompt: '/imagine prompt: Hyper-realistic cinematic commercial shot of a glossy metallic slate grey Porsche 911 speeding on a mountain coastal highway at dusk, golden hour sun reflections on curved metal, cinematic 35mm anamorphic lens, motion blur background, 8k resolution, photorealistic render --ar 16:9 --style raw --v 6.0',
       engine: 'Kling AI + Midjourney v6',
       ar: '16:9 Cinema 4K',
+      video: 'assets/project-porsche.mp4',
       img: 'assets/project-velocity.svg'
+    },
+    mkframes: {
+      title: 'M.K Art & Frames — Commercial Showcase',
+      badge: 'COMMERCIAL REEL • 4K ULTRA HD',
+      desc: 'Commercial architectural visualization and dynamic brand showcase crafted for M.K Art & Frames, highlighting bespoke frame galleries, luxury showroom interiors, and artisanal craftsmanship.',
+      prompt: '/imagine prompt: Ultra-realistic architectural commercial showcase of M.K Art & Frames showroom, elegant contemporary gallery interiors with warm ambient track lighting, bespoke handcrafted picture frames lining luxury textured accent walls, smooth cinematic tracking shot, 8k, photorealistic architectural digest style --ar 9:16 --v 6.0',
+      engine: 'Kling AI + Topaz Video AI',
+      ar: '9:16 Vertical Reel (4K)',
+      video: 'assets/project-mk-frames.mp4',
+      img: 'assets/project-cyberpunk.svg'
     },
     cyberpunk: {
       title: 'Cyberpunk Neon Noir — Cinematic AI Commercial',
@@ -297,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('projectModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
   const modalImg = document.getElementById('modalProjectImg');
+  const modalVideo = document.getElementById('modalProjectVideo');
   const modalBadge = document.getElementById('modalProjectBadge');
   const modalTitle = document.getElementById('modalProjectTitle');
   const modalDesc = document.getElementById('modalProjectDesc');
@@ -309,7 +321,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = projectData[projectId];
     if (!data) return;
 
-    modalImg.src = data.img;
+    if (data.video && modalVideo) {
+      modalVideo.src = data.video;
+      modalVideo.style.display = 'block';
+      modalImg.style.display = 'none';
+      modalVideo.play().catch(() => {});
+    } else {
+      if (modalVideo) {
+        modalVideo.pause();
+        modalVideo.style.display = 'none';
+      }
+      modalImg.style.display = 'block';
+      modalImg.src = data.img;
+    }
+
     modalBadge.textContent = data.badge;
     modalTitle.textContent = data.title;
     modalDesc.textContent = data.desc;
@@ -325,6 +350,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeProjectModal() {
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    if (modalVideo) {
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+    }
     playClickSound(450, 'sine', 0.04);
   }
 
