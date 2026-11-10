@@ -15,7 +15,7 @@
   <!-- Google Fonts: Plus Jakarta Sans, Playfair Display, Syne, Space Grotesk, Caveat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@700;800&family=Urbanist:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet -->
     <!-- Inlined Production Stylesheet for Instant Vercel Rendering -->
@@ -46,7 +46,7 @@
   --blue-orb-gradient: radial-gradient(circle, rgba(56, 189, 248, 0.5) 0%, rgba(147, 197, 253, 0.2) 50%, transparent 75%);
 
   --font-main: 'Plus Jakarta Sans', sans-serif;
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Space Grotesk', monospace;
   --font-script: 'Caveat', cursive;
 
@@ -160,11 +160,14 @@ body {
 
 .section-title-large {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
   font-weight: 800;
   color: var(--text-dark);
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  position: relative;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 .section-subtitle-text {
@@ -1779,17 +1782,14 @@ body {
   background: #0F172A;
 }
 
-.project-thumbnail-img,
-.project-thumbnail-video {
+.project-thumbnail-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   transition: transform var(--transition-smooth);
 }
 
-.themed-project-card:hover .project-thumbnail-img,
-.themed-project-card:hover .project-thumbnail-video {
+.themed-project-card:hover .project-thumbnail-img {
   transform: scale(1.05);
 }
 
@@ -3196,24 +3196,24 @@ body {
 
       <div class="projects-cards-grid" id="projectsGrid">
         
-        <!-- Project 1: Porsche 911 / Cinematic AI Commercial (Car Video) -->
-        <div class="themed-project-card project-card-video" data-category="video" data-id="porsche">
+        <!-- Project 1: Cyberpunk Neon Noir -->
+        <div class="themed-project-card" data-category="video" data-id="cyberpunk">
           <div class="project-thumbnail-wrapper">
-            <video class="project-thumbnail-video" src="assets/project-porsche.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <img src="assets/project-cyberpunk.svg" alt="Cyberpunk Neon Noir" class="project-thumbnail-img">
             <span class="project-card-badge">AI Video • 4K</span>
           </div>
           <div class="project-card-details">
             <div class="project-meta-line">
-              <span>Cinematic AI Commercial</span>
+              <span>Sci-Fi World Building</span>
               <span class="project-meta-tool-tag">Kling AI + Midjourney</span>
             </div>
-            <h3 class="project-heading-title">Porsche 911 — Cinematic Commercial</h3>
+            <h3 class="project-heading-title">Cyberpunk Neon Noir</h3>
             <p class="project-body-summary">
-              High-octane luxury automotive commercial engineered for fluid camera sweeps, photorealistic paint reflections, and dynamic cinematic lighting.
+              Atmospheric futuristic metropolis commercial featuring dynamic camera sweeps, neon rain reflections, and cybernetic character design.
             </p>
             <div class="project-card-footer">
-              <button class="btn-open-prompt-modal" data-project="porsche">
-                <span>View Concept &amp; Prompt</span> ↗
+              <button class="btn-open-prompt-modal" data-project="cyberpunk">
+                <span>View Prompt &amp; Concept</span> ↗
               </button>
             </div>
           </div>
@@ -3912,15 +3912,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. PROMPT & CONCEPT INSPECTOR MODAL
   // =========================================================================
   const projectData = {
-    porsche: {
-      title: 'Porsche 911 — Cinematic AI Commercial',
-      badge: 'AI CINEMATIC VIDEO • 4K RENDER',
-      desc: 'High-octane luxury automotive commercial engineered for fluid camera sweeps, photorealistic paint reflections, and dynamic cinematic lighting.',
-      prompt: '/imagine prompt: Hyper-realistic cinematic commercial shot of a glossy metallic slate grey Porsche 911 speeding on a mountain coastal highway at dusk, golden hour sun reflections on curved metal, cinematic 35mm anamorphic lens, motion blur background, 8k resolution, photorealistic render --ar 16:9 --style raw --v 6.0',
-      engine: 'Kling AI + Midjourney v6',
-      ar: '16:9 Cinema 4K',
-      img: 'assets/project-velocity.svg'
-    },
     cyberpunk: {
       title: 'Cyberpunk Neon Noir — Cinematic AI Commercial',
       badge: 'AI CINEMATIC VIDEO • 4K RENDER',
