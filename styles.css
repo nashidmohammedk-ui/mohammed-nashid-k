@@ -24,7 +24,7 @@
   --blue-orb-gradient: radial-gradient(circle, rgba(56, 189, 248, 0.5) 0%, rgba(147, 197, 253, 0.2) 50%, transparent 75%);
 
   --font-main: 'Plus Jakarta Sans', sans-serif;
-  --font-display: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Montserrat', 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Space Grotesk', monospace;
   --font-script: 'Caveat', cursive;
 
@@ -137,11 +137,12 @@ body {
 
 .section-title-large {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
-  font-weight: 800;
+  font-size: clamp(2.3rem, 5vw, 4.1rem);
+  font-weight: 900;
+  text-transform: uppercase;
   color: var(--text-dark);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   position: relative;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -782,10 +783,7 @@ body {
 }
 
 .about-bento-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 34px;
-  align-items: stretch;
+  display: block;
   width: 100%;
 }
 
@@ -794,7 +792,7 @@ body {
   background: var(--bg-white);
   border: 1px solid #E2E8F0;
   border-radius: 20px;
-  padding: 38px 40px;
+  padding: 44px 48px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -1618,16 +1616,62 @@ body {
 
 .service-card-title {
   font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 700;
+  font-size: 1.55rem;
+  font-weight: 800;
   color: var(--text-dark);
-  line-height: 1.2;
+  line-height: 1.25;
+  margin-top: 14px;
+}
+
+.badge-blue-block {
+  display: inline-block;
+  background-color: var(--blue-vibrant); /* #0EA5E9 matching the user's reference tag */
+  color: #FFFFFF !important;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  padding: 4px 10px;
+  margin-bottom: 5px;
+  border-radius: 2px;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.28);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.themed-service-card:hover .badge-blue-block,
+.process-step-card:hover .badge-blue-block,
+.themed-project-card:hover .badge-blue-block,
+.skills-pillar-box:hover .badge-blue-block,
+.why-pillar-card:hover .badge-blue-block,
+.about-pillar-card:hover .badge-blue-block {
+  transform: translateX(3px);
+  background-color: var(--blue-dark); /* #0284C7 */
+  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.38);
+}
+
+.about-pillar-title .badge-blue-block {
+  font-size: 0.92rem;
+  padding: 3px 8px;
+  margin-bottom: 2px;
+}
+
+.process-step-name .badge-blue-block,
+.skills-box-title .badge-blue-block,
+.why-card-heading .badge-blue-block {
+  font-size: clamp(1.02rem, 1.6vw, 1.25rem);
+}
+
+.project-heading-title .badge-blue-block {
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
 }
 
 .service-card-desc {
   font-size: 0.98rem;
   color: var(--text-muted);
   line-height: 1.65;
+  margin-top: 12px;
 }
 
 .service-expand-trigger {
@@ -2685,34 +2729,13 @@ body {
 /* Tablet & Smaller Laptops (<= 1024px) */
 @media (max-width: 1024px) {
   .hero-stage-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    margin-top: 24px;
-    text-align: center;
-  }
-
-  .hero-typography-col {
-    align-items: center;
-  }
-
-  .hero-portfolio-logo-wrap {
-    margin: 0 auto;
-    max-width: 420px;
-  }
-
-  .hero-footer-row {
-    display: flex;
-    justify-content: center;
-  }
-
-  .hero-portrait-col {
-    justify-content: center;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 24px;
     align-items: center;
   }
 
   .hero-portrait-theme-img {
-    max-width: 420px;
-    margin: 0 auto;
+    max-width: 460px;
   }
 
   .about-bento-grid {
@@ -2759,6 +2782,37 @@ body {
   .hero-wrapper {
     padding: 86px 20px 36px 20px;
     min-height: auto;
+  }
+
+  .hero-stage-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .hero-typography-col {
+    align-items: center;
+  }
+
+  .hero-portfolio-logo-wrap {
+    margin: 0 auto;
+    max-width: 420px;
+  }
+
+  .hero-footer-row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-portrait-col {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-portrait-theme-img {
+    max-width: 420px;
+    margin: 0 auto;
   }
 
   .hero-ambient-orb-tr,
@@ -3038,7 +3092,13 @@ body {
   }
 
   .service-card-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+  }
+
+  .badge-blue-block {
+    font-size: 1.05rem;
+    padding: 3px 8px;
+    margin-bottom: 3px;
   }
 
   .service-card-desc {
@@ -3200,3 +3260,360 @@ body {
     justify-content: center;
   }
 }
+
+/* ==========================================================================
+   CINEMATIC MOTION & ANIMATION SYSTEM (MATCHING REFERENCE VIDEO)
+   Strictly motion & animation enhancements: preserving all existing colors,
+   typography, layout, backgrounds, and content.
+   ========================================================================== */
+
+/* 1. TOP SCROLL PROGRESS BAR */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #38BDF8 0%, #0EA5E9 50%, #60A5FA 100%);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.75);
+  z-index: 99999;
+  pointer-events: none;
+  transition: width 0.08s linear;
+}
+
+/* 2. AMBIENT MOTION CANVAS (Subtle drifting luminous particles) */
+.ambient-motion-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.65;
+}
+
+/* 3. CINEMATIC LOCK / INTRO SCREEN - REMOVED */
+  -webkit-user-drag: none;
+}
+
+/* Typography Word Mask & Character Reveals */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 6px;
+  margin-bottom: -6px;
+}
+
+.word-reveal {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Clip-Path Reveal Wrapper for Visual Elements */
+.clip-reveal-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.clip-reveal-img {
+  will-change: transform, clip-path, filter;
+}
+
+
+
+/* 4. CINEMATIC VIEWPORT SCROLL REVEAL SYSTEM */
+html.gsap-active .reveal-on-scroll {
+  transition: none !important;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay helper classes */
+.reveal-on-scroll[data-reveal-delay="1"] { transition-delay: 0.08s; }
+.reveal-on-scroll[data-reveal-delay="2"] { transition-delay: 0.16s; }
+.reveal-on-scroll[data-reveal-delay="3"] { transition-delay: 0.24s; }
+.reveal-on-scroll[data-reveal-delay="4"] { transition-delay: 0.32s; }
+.reveal-on-scroll[data-reveal-delay="5"] { transition-delay: 0.40s; }
+.reveal-on-scroll[data-reveal-delay="6"] { transition-delay: 0.48s; }
+
+.reveal-scale-in {
+  opacity: 0;
+  transform: scale(0.94) translateY(24px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale-in.is-revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* 5. ADVANCED 3D TILT & INTERACTIVE CARD HOVER (VIDEO 00:13 - 00:19) */
+.tilt-card-target {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+  will-change: transform, box-shadow;
+}
+
+/* Specular Light Sheen Overlay */
+.card-specular-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 5;
+  transition: opacity 0.35s ease;
+  mix-blend-mode: overlay;
+}
+
+.tilt-card-target:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 20px 48px rgba(14, 165, 233, 0.18), 0 0 0 1px rgba(56, 189, 248, 0.35);
+}
+
+.tilt-card-target:hover .card-specular-glare {
+  opacity: 1;
+}
+
+/* 6. PROJECT SHOWCASE THUMBNAIL ANIMATION & ZOOM */
+.themed-project-card {
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.themed-project-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 24px 50px rgba(14, 165, 233, 0.22), 0 0 24px rgba(56, 189, 248, 0.25);
+  border-color: var(--blue-primary);
+}
+
+.project-thumbnail-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.project-thumbnail-wrapper .project-thumbnail-video,
+.project-thumbnail-wrapper img {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease;
+  will-change: transform;
+}
+
+.themed-project-card:hover .project-thumbnail-wrapper .project-thumbnail-video,
+.themed-project-card:hover .project-thumbnail-wrapper img {
+  transform: scale(1.06);
+  filter: brightness(1.05);
+}
+
+.project-card-badge {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.themed-project-card:hover .project-card-badge {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+}
+
+/* 7. CINEMATIC BUTTON HOVER & SHIMMER SWEEP */
+.btn-theme-primary,
+.btn-open-prompt-modal,
+.talk-nav-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.btn-theme-primary:hover,
+.btn-open-prompt-modal:hover,
+.talk-nav-btn:hover {
+  transform: translateY(-2.5px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(56, 189, 248, 0.38);
+}
+
+.btn-theme-primary::after,
+.btn-open-prompt-modal::after,
+.talk-nav-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.btn-theme-primary:hover::after,
+.btn-open-prompt-modal:hover::after,
+.talk-nav-btn:hover::after {
+  left: 140%;
+  transition: left 0.75s ease-in-out;
+}
+
+/* Secondary Button Lift */
+.btn-theme-outline {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.btn-theme-outline:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
+  border-color: var(--blue-primary);
+}
+
+/* Navigation Links Animated Underline */
+.nav-link-item,
+.nav-pill-link {
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-link-item::after,
+.nav-pill-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--blue-primary);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-item:hover::after,
+.nav-link-item.active::after,
+.nav-pill-link:hover::after,
+.nav-pill-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* 8. FLOATING BACK TO TOP BUTTON */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: var(--blue-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12), 0 0 16px rgba(56, 189, 248, 0.2);
+  z-index: 990;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.9);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.35s,
+              background-color 0.25s,
+              color 0.25s,
+              box-shadow 0.25s;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top-btn:hover {
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.45);
+}
+
+.back-to-top-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.back-to-top-btn:hover svg {
+  transform: translateY(-2px);
+}
+
+/* 9. TOOLKIT CHIPS ANIMATION */
+.toolkit-chip-item {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease,
+              border-color 0.25s ease,
+              background-color 0.25s ease;
+  will-change: transform;
+}
+
+.toolkit-chip-item:hover {
+  transform: translateY(-4px) scale(1.04);
+  border-color: var(--blue-primary);
+  box-shadow: 0 8px 18px rgba(56, 189, 248, 0.22);
+}
+
+/* 10. ACCESSIBLE REDUCED-MOTION HANDLING */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .cinematic-preloader {
+    display: none !important;
+  }
+
+  .ambient-motion-canvas {
+    display: none !important;
+  }
+
+  .reveal-on-scroll,
+  .reveal-scale-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .tilt-card-target {
+    transform: none !important;
+  }
+
+  .hero-portrait-theme-img {
+    animation: none !important;
+  }
+}
+

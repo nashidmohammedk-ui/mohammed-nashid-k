@@ -9,3 +9,5 @@ PUSH_TO_GITHUB.bat
 .vscode/
 .idea/
 scratch/
+package.json
+package-lock.json
