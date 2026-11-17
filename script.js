@@ -902,46 +902,7 @@ if (window.__NASHID_PORTFOLIO_INIT__) {
         });
       }
 
-      // F. Section 06 Skills & Toolkit
-      const skillPillars = document.querySelectorAll('.skills-pillar-box');
-      if (skillPillars.length > 0) {
-        gsap.from(skillPillars, {
-          scrollTrigger: { trigger: '.skills-pillars-grid', start: 'top 80%' },
-          y: 55,
-          opacity: 0,
-          stagger: 0.15,
-          duration: 0.85,
-          ease: 'power3.out'
-        });
-      }
-
-      const toolkitChips = document.querySelectorAll('.toolkit-chip-item');
-      if (toolkitChips.length > 0) {
-        gsap.from(toolkitChips, {
-          scrollTrigger: { trigger: '.toolkit-chips-container', start: 'top 85%' },
-          scale: 0.6,
-          opacity: 0,
-          stagger: 0.06,
-          duration: 0.5,
-          ease: 'back.out(2)'
-        });
-      }
-
-      // G. Section 07 Why Work With Me
-      const whyCards = document.querySelectorAll('.why-pillar-card');
-      if (whyCards.length > 0) {
-        gsap.from(whyCards, {
-          scrollTrigger: { trigger: '.why-pillars-grid', start: 'top 80%' },
-          y: 50,
-          opacity: 0,
-          scale: 0.95,
-          stagger: 0.1,
-          duration: 0.8,
-          ease: 'power3.out'
-        });
-      }
-
-      // H. Section 08 Contact & Footer (STEP 3.F)
+      // F. Section 06 Contact & Footer (STEP 3.F)
       const contactMeta = document.querySelector('.contact-meta-group');
       const contactFormCard = document.querySelector('.contact-form-card');
       if (contactMeta) {
@@ -1054,7 +1015,7 @@ if (window.__NASHID_PORTFOLIO_INIT__) {
 
     if (!isTouchDevice && !prefersReducedMotion) {
       const tiltCards = document.querySelectorAll(
-        '.themed-project-card, .service-card, .about-pillar-card, .process-step-card, .skills-pillar-box, .why-pillar-card, .about-studio-terminal-card'
+        '.themed-project-card, .service-card, .about-pillar-card, .process-step-card'
       );
 
       tiltCards.forEach(card => {
