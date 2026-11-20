@@ -243,6 +243,17 @@ body {
   border: 1px solid rgba(96, 165, 250, 0.35);
 }
 
+.hero-orbit-arcs-bg::before {
+  content: "";
+  position: absolute;
+  top: -15%;
+  left: -15%;
+  width: 130%;
+  height: 130%;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+}
+
 /* ==========================================================================
    RECTANGULAR STICKY TOP NAVBAR (MATCHING REFERENCE DESIGN)
    Full-width rectangular header bar docked at the top of the viewport
@@ -642,43 +653,35 @@ body {
    and smooth editorial scroll reveals for the About Me page.
    ========================================================================== */
 
-/* 1. Hero Page Entrance Keyframes */
+/* 1. Hero Page Entrance Keyframes (Crisp & Sharp, Zero Blur) */
 @keyframes heroPortraitRise {
   0% {
     opacity: 0;
-    transform: translateY(70px) scale(0.94);
-    filter: blur(8px);
-  }
-  60% {
-    opacity: 0.95;
-    filter: blur(0);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
+    transform: translateY(0);
   }
 }
 
 @keyframes heroPortraitBreathing {
   0%, 100% {
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-9px) scale(1.012);
+    transform: translateY(-6px);
   }
 }
 
 @keyframes heroTextRevealUp {
   0% {
     opacity: 0;
-    transform: translateY(32px);
-    filter: blur(3px);
+    transform: translateY(24px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
@@ -688,16 +691,12 @@ body {
   height: auto;
   display: block;
   user-select: none;
-  filter: none;
+  filter: none !important;
+  -webkit-filter: none !important;
   border-radius: 0;
-  animation: heroPortraitRise 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: transform, opacity;
-  translate: 0 var(--hero-scroll-shift-y, 0px);
-  transition: translate 0.12s linear;
-}
-
-.hero-portrait-col.floating .hero-portrait-theme-img {
-  animation: heroPortraitBreathing 6.5s ease-in-out infinite;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: none;
 }
 
 .hero-portfolio-logo-wrap {
@@ -768,41 +767,163 @@ body {
 }
 
 /* ==========================================================================
-   02 — ABOUT ME (MODERN BENTO ARCHITECTURE — NO FACE PHOTO)
-   Sophisticated editorial narrative + Interactive Studio Terminal Spec Card
+   02 — ABOUT ME (EDITORIAL MOTION SUITE — MATCHING REFERENCE VIDEO)
+   2-Column Layout: Left Editorial Narrative + Right 2x2 Pillars Grid
    ========================================================================== */
 .about-container {
   max-width: 1360px;
   margin: 0 auto;
   position: relative;
   z-index: 10;
+  width: 100%;
+}
+
+.about-layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 60px;
+  align-items: start;
+  width: 100%;
+}
+
+/* Left Column: Editorial Line & Content */
+.about-left-col {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 28px;
+}
+
+.about-editorial-line {
+  width: 3px;
+  min-width: 3px;
+  background: linear-gradient(180deg, var(--blue-primary) 0%, var(--blue-vibrant) 55%, rgba(56, 189, 248, 0.2) 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+  transform-origin: top center;
+  flex-shrink: 0;
+}
+
+.about-editorial-content {
   display: flex;
   flex-direction: column;
-  gap: 44px;
+  gap: 14px;
+  flex-grow: 1;
+}
+
+.about-tag-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.about-left-col .section-title-large {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  margin: 0;
+}
+
+.about-narrative-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  line-height: 1.82;
+  margin-top: 10px;
+}
+
+.about-narrative-text strong {
+  color: var(--text-dark);
+}
+
+/* Right Column: 2x2 Pillars Grid */
+.about-right-col {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   width: 100%;
 }
 
-.about-bento-grid {
-  display: block;
-  width: 100%;
-}
-
-/* Left Column: Narrative Card */
-.about-narrative-card {
+.about-pillar-card {
   background: var(--bg-white);
   border: 1px solid #E2E8F0;
-  border-radius: 20px;
-  padding: 44px 48px;
+  border-radius: 16px;
+  padding: 30px 22px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  box-shadow: var(--shadow-subtle);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-smooth);
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), border-color 0.25s ease, box-shadow 0.3s ease;
+  min-height: 185px;
 }
 
-.about-narrative-card:hover {
-  border-color: rgba(56, 189, 248, 0.4);
-  box-shadow: 0 14px 38px rgba(56, 189, 248, 0.08);
+.about-pillar-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue-primary);
+  box-shadow: 0 16px 36px rgba(56, 189, 248, 0.16);
+}
+
+.about-pillar-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--bg-blue-tint);
+  color: var(--blue-vibrant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.about-pillar-card:hover .about-pillar-icon-wrap {
+  background: var(--blue-vibrant);
+  color: #FFFFFF;
+  transform: scale(1.08);
+}
+
+.about-pillar-title {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.about-pillar-caption {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.45;
+}
+
+@media (max-width: 992px) {
+  .about-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 580px) {
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .about-left-col {
+    gap: 18px;
+  }
 }
 
 .about-card-badge-row {
@@ -1155,10 +1276,10 @@ body {
   width: 100%;
 }
 
-/* 4 Pillars Grid */
+/* 4 Pillars Grid (Inherited from 2-column layout) */
 .about-pillars-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
 }
@@ -3293,8 +3414,6 @@ body {
 }
 
 /* 3. CINEMATIC LOCK / INTRO SCREEN - REMOVED */
-  -webkit-user-drag: none;
-}
 
 /* Typography Word Mask & Character Reveals */
 .word-mask {

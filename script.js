@@ -594,23 +594,12 @@ if (window.__NASHID_PORTFOLIO_INIT__) {
         // Year Callout
         heroTL.fromTo('.spaced-year-callout', { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8 }, 0.5);
 
-        // Hero Portrait Reveal via Clip-Path Bloom
+        // Hero Portrait Reveal (Crystal Clear, Zero Blur)
         heroTL.fromTo('.hero-portrait-theme-img',
-          { clipPath: 'inset(100% 0% 0% 0%)', scale: 0.9, opacity: 0, filter: 'blur(8px)' },
-          { clipPath: 'inset(0% 0% 0% 0%)', scale: 1, opacity: 1, filter: 'blur(0px)', duration: 1.3, ease: 'power3.out' },
+          { clipPath: 'inset(100% 0% 0% 0%)', opacity: 0 },
+          { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1, duration: 1.1, ease: 'power3.out' },
           0.2
         );
-
-        // Ambient continuous floating loop on portrait
-        heroTL.add(() => {
-          gsap.to('.hero-portrait-theme-img', {
-            y: -14,
-            duration: 3.8,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut'
-          });
-        });
 
       } else {
         const heroCol = document.querySelector('.hero-portrait-col');
@@ -764,6 +753,7 @@ if (window.__NASHID_PORTFOLIO_INIT__) {
 
       // A. Section Titles: Word-by-Word Clip-Path Reveal
       document.querySelectorAll('.section-title-large').forEach(title => {
+        if (title.closest('#about')) return; // Handled in dedicated About Me timeline below
         if (!title.querySelector('.word-mask')) {
           const words = title.textContent.trim().split(/\s+/);
           title.innerHTML = words.map(w => `<span class="word-mask"><span class="word-reveal">${w}</span></span>`).join(' ');
@@ -788,6 +778,7 @@ if (window.__NASHID_PORTFOLIO_INIT__) {
 
       // Section Micro-Tags & Subtitles
       document.querySelectorAll('.section-header-block').forEach(block => {
+        if (block.closest('#about')) return;
         const tag = block.querySelector('.brand-accent-tag');
         const microTag = block.querySelector('.section-micro-tag');
         const subtitle = block.querySelector('.section-subtitle-text');
@@ -824,31 +815,93 @@ if (window.__NASHID_PORTFOLIO_INIT__) {
         }
       });
 
-      // B. Section 02 About Narrative Card
-      const aboutNarrative = document.querySelector('.about-narrative-card');
-      if (aboutNarrative) {
-        gsap.from(aboutNarrative, {
-          scrollTrigger: { trigger: aboutNarrative, start: 'top 82%' },
-          y: 40,
-          opacity: 0,
-          scale: 0.98,
-          duration: 1,
-          ease: 'power3.out'
-        });
-      }
+      // =========================================================================
+      // B. SECTION 02 ABOUT ME — EDITORIAL MOTION SUITE (MATCHING REFERENCE VIDEO)
+      // Top-to-bottom line wipe, upward text reveal, staggered row-by-row 2x2 grid
+      // =========================================================================
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        const aboutLine = aboutSection.querySelector('.about-editorial-line');
+        const aboutTag = aboutSection.querySelector('.section-micro-tag');
+        const aboutTitle = aboutSection.querySelector('.section-title-large');
+        const aboutParas = aboutSection.querySelectorAll('.about-narrative-text p');
+        const row1Cards = aboutSection.querySelectorAll('.about-pillar-card[data-pillar-row="1"]');
+        const row2Cards = aboutSection.querySelectorAll('.about-pillar-card[data-pillar-row="2"]');
 
-      // About Pillars Grid (Staggered 4 cards)
-      const aboutPillars = document.querySelectorAll('.about-pillar-card');
-      if (aboutPillars.length > 0) {
-        gsap.from(aboutPillars, {
-          scrollTrigger: { trigger: '.about-pillars-grid', start: 'top 82%' },
-          y: 50,
-          opacity: 0,
-          scale: 0.94,
-          stagger: 0.1,
-          duration: 0.85,
-          ease: 'power3.out'
+        if (aboutTitle && !aboutTitle.querySelector('.word-mask')) {
+          const words = aboutTitle.textContent.trim().split(/\s+/);
+          aboutTitle.innerHTML = words.map(w => `<span class="word-mask"><span class="word-reveal">${w}</span></span>`).join(' ');
+        }
+        const aboutWords = aboutTitle ? aboutTitle.querySelectorAll('.word-reveal') : null;
+
+        const aboutTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: aboutSection,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          },
+          defaults: { ease: 'power3.out' }
         });
+
+        // 1. Accent Line: draws top-to-bottom (Frame 0 -> Frame 3 in reference video)
+        if (aboutLine) {
+          aboutTL.fromTo(aboutLine,
+            { scaleY: 0 },
+            { scaleY: 1, duration: 1.15, ease: 'power2.inOut' },
+            0
+          );
+        }
+
+        // 2. Micro Tag: subtle upward slide & fade
+        if (aboutTag) {
+          aboutTL.fromTo(aboutTag,
+            { y: 22, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.65 },
+            0.1
+          );
+        }
+
+        // 3. Title: word-masked slide up
+        if (aboutWords && aboutWords.length > 0) {
+          aboutTL.fromTo(aboutWords,
+            { y: '115%', opacity: 0 },
+            { y: '0%', opacity: 1, stagger: 0.08, duration: 0.8 },
+            0.18
+          );
+        } else if (aboutTitle) {
+          aboutTL.fromTo(aboutTitle,
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8 },
+            0.18
+          );
+        }
+
+        // 4. Narrative Paragraphs: staggered upward fade-in
+        if (aboutParas.length > 0) {
+          aboutTL.fromTo(aboutParas,
+            { y: 25, opacity: 0 },
+            { y: 0, opacity: 1, stagger: 0.12, duration: 0.8 },
+            0.32
+          );
+        }
+
+        // 5. 2x2 Grid - Row 1 cards entrance (Frame 1 -> Frame 2 in reference video)
+        if (row1Cards.length > 0) {
+          aboutTL.fromTo(row1Cards,
+            { y: 45, opacity: 0, scale: 0.95 },
+            { y: 0, opacity: 1, scale: 1, stagger: 0.12, duration: 0.85 },
+            0.38
+          );
+        }
+
+        // 6. 2x2 Grid - Row 2 cards entrance (Frame 2 -> Frame 3 in reference video)
+        if (row2Cards.length > 0) {
+          aboutTL.fromTo(row2Cards,
+            { y: 45, opacity: 0, scale: 0.95 },
+            { y: 0, opacity: 1, scale: 1, stagger: 0.12, duration: 0.85 },
+            0.58
+          );
+        }
       }
 
       // C. Section 03 Services Cards (STEP 3.D)
