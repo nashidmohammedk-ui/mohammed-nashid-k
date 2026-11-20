@@ -918,26 +918,63 @@ if (window.__NASHID_PORTFOLIO_INIT__) {
         });
       }
 
-      // D. Section 04 Process Steps (STEP 3.B)
-      const processCards = document.querySelectorAll('.process-step-card');
+      // D. Section 04 Process Steps Entrance & Interactive Accordion
+      const processCards = document.querySelectorAll('.process-card-v2');
       if (processCards.length > 0) {
         gsap.from(processCards, {
           scrollTrigger: { trigger: '.process-steps-grid', start: 'top 80%' },
           y: 50,
           opacity: 0,
-          scale: 0.95,
-          stagger: 0.14,
+          scale: 0.94,
+          stagger: 0.12,
           duration: 0.85,
           ease: 'power3.out'
         });
 
-        gsap.from('.process-step-digit', {
-          scrollTrigger: { trigger: '.process-steps-grid', start: 'top 80%' },
-          scale: 0.4,
-          opacity: 0,
-          stagger: 0.14,
-          duration: 0.65,
-          ease: 'back.out(2.2)'
+        let activeTypingTimer = null;
+        processCards.forEach(card => {
+          card.addEventListener('click', () => {
+            if (card.classList.contains('active')) return;
+
+            // Deactivate other cards
+            processCards.forEach(c => {
+              c.classList.remove('active');
+              const bar = c.querySelector('.process-card-bar');
+              if (bar) bar.setAttribute('aria-expanded', 'false');
+              const chev = c.querySelector('.process-chevron');
+              if (chev) {
+                chev.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+              }
+            });
+
+            // Activate clicked card
+            card.classList.add('active');
+            const bar = card.querySelector('.process-card-bar');
+            if (bar) bar.setAttribute('aria-expanded', 'true');
+            const chev = card.querySelector('.process-chevron');
+            if (chev) {
+              chev.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>';
+            }
+
+            // Typewriter effect on the newly opened card
+            const textEl = card.querySelector('.process-typed-text');
+            if (textEl && textEl.dataset.text) {
+              if (activeTypingTimer) clearInterval(activeTypingTimer);
+              const targetText = textEl.dataset.text;
+              textEl.textContent = '';
+              textEl.classList.add('typing');
+              let i = 0;
+              activeTypingTimer = setInterval(() => {
+                textEl.textContent = targetText.slice(0, ++i);
+                if (i >= targetText.length) {
+                  clearInterval(activeTypingTimer);
+                  textEl.classList.remove('typing');
+                }
+              }, 55);
+            }
+
+            playClickSound(650, 'sine', 0.04);
+          });
         });
       }
 
@@ -1068,7 +1105,7 @@ if (window.__NASHID_PORTFOLIO_INIT__) {
 
     if (!isTouchDevice && !prefersReducedMotion) {
       const tiltCards = document.querySelectorAll(
-        '.themed-project-card, .service-card, .about-pillar-card, .process-step-card'
+        '.themed-project-card, .service-card, .about-pillar-card, .process-card-v2'
       );
 
       tiltCards.forEach(card => {
