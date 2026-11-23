@@ -287,6 +287,16 @@ if (window.__NASHID_PORTFOLIO_INIT__) {
         video: 'assets/project-mk-frames.mp4',
         img: 'assets/project-cyberpunk.svg'
       },
+      cocowhite: {
+        title: 'CoCoWhite — Touch of Purity Commercial',
+        badge: 'BRAND CAMPAIGN • 9:16 4K REEL',
+        desc: 'A multi-scene cinematic brand commercial for CoCoWhite premium tissues ("Touch of Purity — A Little Essential. Everywhere."). Follows dynamic everyday lifestyle vignettes including toddler finger-painting, fine dining hospitality, corporate workspace cleanup, gym fitness recovery, and gentle baby nursery care.',
+        prompt: '/imagine prompt: Cinematic commercial lifestyle campaign for CoCoWhite premium tissues, vibrant purple and azure blue gradient box, seamless transitions between diverse daily moments: messy colorful kid finger-painting, elegant restaurant candlelit dining, spilled coffee in sunny modern office, sweaty athletic woman in fitness gym, mother gently dabbing newborn baby with ultra-soft white tissue, macro hero packshot on dewy reflective surface with condensation droplets, shot on ARRI Alexa Mini, 8k resolution, cinematic lighting --ar 9:16 --v 6.0',
+        engine: 'Minimax Hailuo AI + Kling AI + Premiere Pro',
+        ar: '9:16 Vertical Reel (4K)',
+        video: 'assets/project-cocowhite.mp4',
+        img: 'assets/project-cocowhite.jpg'
+      },
       cyberpunk: {
         title: 'Cyberpunk Neon Noir — Cinematic AI Commercial',
         badge: 'AI CINEMATIC VIDEO • 4K RENDER',
