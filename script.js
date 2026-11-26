@@ -294,7 +294,7 @@ if (window.__NASHID_PORTFOLIO_INIT__) {
         prompt: '/imagine prompt: Cinematic commercial lifestyle campaign for CoCoWhite premium tissues, vibrant purple and azure blue gradient box, seamless transitions between diverse daily moments: messy colorful kid finger-painting, elegant restaurant candlelit dining, spilled coffee in sunny modern office, sweaty athletic woman in fitness gym, mother gently dabbing newborn baby with ultra-soft white tissue, macro hero packshot on dewy reflective surface with condensation droplets, shot on ARRI Alexa Mini, 8k resolution, cinematic lighting --ar 9:16 --v 6.0',
         engine: 'Minimax Hailuo AI + Kling AI + Premiere Pro',
         ar: '9:16 Vertical Reel (4K)',
-        video: 'assets/project-cocowhite.mp4',
+        video: 'assets/project-cocowhite.mp4?v=2',
         img: 'assets/project-cocowhite.jpg'
       },
       cyberpunk: {
